@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculador de cuotas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="card">
+    <header>
+      <h1>¿Te conviene comprar en cuotas o al contado?</h1>
+    </header>
+    <main>
+      <p>Como te llamas? <input type="text" id="nombre"><button id="btnname">Registrar nombre</button></p>
+      <div id="saludo"></div>
+      <h2>Solo ingresa los siguientes datos:</h2>
+      <ul>
+        <li>Precio del producto al contado: <input type="number" id="inputpreciocontado"></li>
+        <li>Precio del producto final en cuotas: <input type="number" id="inputpreciocuotas"></li>
+        <li>Cantidad de cuotas: <input type="number" id="inputcuotas"></li>
+        <li>Pais: <select id="inputpais">
+            <option value="arg">Argentina</option>
+            <option value="chi">Chile</option>
+            <option value="uru">Uruguay</option>
+          </select></li>
+      </ul>
+      <button id="boton">Que conviene?</button>
+      <div id="padre"></div>
+      <div id="conclusionfinal"></div>
+    </main>
+    <footer>Diseñado por Silvio</footer>
+  </div>
+</body>
+<script src="archivo.js"></script>
+
+</html>
