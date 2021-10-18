@@ -70,12 +70,17 @@ const imprimirhtml = () => {
 };
 
 // Funcion para mostrar en HTML la conclusion
+// const imprimirhtmlconclusion = () => {
+//   let conclusion = document.getElementById("conclusionfinal");
+//   conclusion.innerHTML = "";
+//   let div2 = document.createElement("div");
+//   div2.innerHTML = `${queconviene()}`;
+//   conclusion.appendChild(div2);
+// };
+
 const imprimirhtmlconclusion = () => {
-  let conclusion = document.getElementById("conclusionfinal");
-  conclusion.innerHTML = "";
-  let div2 = document.createElement("div");
-  div2.innerHTML = `${queconviene()}`;
-  conclusion.appendChild(div2);
+  $("#conclusionfinal").empty();
+  $("#conclusionfinal").append(`<div>${queconviene()}</div>`);
 };
 
 // Funcion para enviar inputs
@@ -83,6 +88,7 @@ const eventoclick = () => {
   document.getElementById("boton");
   boton.addEventListener("click", hacer);
   function hacer() {
+    resetdevariables();
     obtenerinputs();
     pedirInformacion();
     verificacionPais();
@@ -127,17 +133,14 @@ class Pais {
 const verificacionPais = () => {
   if (inputpais.toLowerCase() == "arg") {
     for (const propiedad in arg) {
-      console.log(arg[propiedad]);
     }
     inputpais = arg;
   } else if (inputpais.toLowerCase() == "chi") {
     for (const propiedad in chi) {
-      console.log(chi[propiedad]);
     }
     inputpais = chi;
   } else if (inputpais.toLowerCase() == "uru") {
     for (const propiedad in uru) {
-      console.log(uru[propiedad]);
     }
     inputpais = uru;
   } else {
@@ -157,8 +160,6 @@ const listadecuotas = () => {
       cuotaajustada(valorcuotas[i], calculoinflacionmensual(), i + 1)
     );
   }
-  console.log(valorcuotas.toString());
-  console.log(valorcuotasajustadas.toString());
 };
 
 //Funcion para sumar arrayas de cuotas
@@ -166,13 +167,17 @@ const sumadecuotasajustadas = () => {
   for (let j = 0; j < valorcuotasajustadas.length; j++) {
     valortotalcuotasajustadas += valorcuotasajustadas[j];
   }
-  console.log(valortotalcuotasajustadas);
+};
+
+const resetdevariables = () => {
+  valorcuotas.length = 0;
+  valorcuotasajustadas.length = 0;
+  valortotalcuotasajustadas = 0;
 };
 
 // Inicializacion de variables, objetos y arrays
 
 let valortotalcuotasajustadas = 0;
-
 const valorcuotas = [];
 const valorcuotasajustadas = [];
 
@@ -183,7 +188,6 @@ const paises = [arg, chi, uru];
 paises.sort(function (a, b) {
   return a.inflacion - b.inflacion;
 });
-console.log(paises);
 
 // Funcion para guardar su nombre
 
@@ -193,7 +197,6 @@ const eventoregistro = () => {
   function registrarse() {
     let nombre1 = document.getElementById("nombre").value;
     localStorage.setItem("nombre1", nombre1);
-    console.log(nombre1);
   }
 };
 
