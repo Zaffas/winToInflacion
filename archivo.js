@@ -69,37 +69,25 @@ const imprimirhtml = () => {
   padre.appendChild(div);
 };
 
-// Funcion para mostrar en HTML la conclusion
-// const imprimirhtmlconclusion = () => {
-//   let conclusion = document.getElementById("conclusionfinal");
-//   conclusion.innerHTML = "";
-//   let div2 = document.createElement("div");
-//   div2.innerHTML = `${queconviene()}`;
-//   conclusion.appendChild(div2);
-// };
-
+// Funcion para mostrar en HTML la conclusion JQUERY
 const imprimirhtmlconclusion = () => {
   $("#conclusionfinal").empty();
   $("#conclusionfinal").append(`<div>${queconviene()}</div>`);
 };
 
-// Funcion para enviar inputs
-const eventoclick = () => {
-  document.getElementById("boton");
-  boton.addEventListener("click", hacer);
-  function hacer() {
-    resetdevariables();
-    obtenerinputs();
-    pedirInformacion();
-    verificacionPais();
-    calculotasadeinteres();
-    listadecuotas();
-    sumadecuotasajustadas();
-    queconviene();
-    imprimirhtml();
-    imprimirhtmlconclusion();
-  }
-};
+// Evento para enviar inputs
+$("#boton").click(function () {
+  resetdevariables();
+  obtenerinputs();
+  pedirInformacion();
+  verificacionPais();
+  calculotasadeinteres();
+  listadecuotas();
+  sumadecuotasajustadas();
+  queconviene();
+  imprimirhtml();
+  imprimirhtmlconclusion();
+});
 
 // Funcion calculo de precio al contado en el ultimo mes
 const precioContadoUltimaCuota = () => {
@@ -213,4 +201,3 @@ const imprimirsaludo = () => {
 
 eventoregistro();
 imprimirsaludo();
-eventoclick();
