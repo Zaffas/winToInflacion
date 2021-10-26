@@ -1,3 +1,5 @@
+const URLJSON = "https://jsonplaceholder.typicode.com/posts";
+
 // Division
 const division = (dividendo, divisor) => {
   return dividendo / divisor;
@@ -40,23 +42,24 @@ const pedirInformacion = () => {
   cantidadCuotas = parseInt(inputcuotas);
 };
 
-// Funcion para obtener inputs
+// Funcion para obtener inputs JQUERY
 const obtenerinputs = () => {
-  inputpreciocontado = document.getElementById("inputpreciocontado").value;
-  inputpreciocuotas = document.getElementById("inputpreciocuotas").value;
-  inputcuotas = document.getElementById("inputcuotas").value;
-  inputpais = document.getElementById("inputpais").value;
+  inputpreciocontado = $("#inputpreciocontado").val();
+  inputpreciocuotas = $("#inputpreciocuotas").val();
+  inputcuotas = $("#inputcuotas").val();
+  inputpais = $("#inputpais").val();
 };
 
-// Funcion para mostrar en HTML resultados
+// Funcion para mostrar en HTML resultados JQUERY
 const imprimirhtml = () => {
-  let padre = document.getElementById("padre");
-  padre.innerHTML = "";
-  let div = document.createElement("div");
-  div.innerHTML = `La tasa de interes del pago en cuotas es de: ${calculotasadeinteres()}%.
+  $("#padre")
+    .slideUp("slow")
+    .empty()
+    .append(
+      `<div class=card>La tasa de interes del pago en cuotas es de: ${calculotasadeinteres()}%.
   El precio final al contado es ${precioContado}, el precio final en cuotas es ${precioCuotas}, la cantidad de cuotas es ${cantidadCuotas}, tu pais es ${
-    inputpais.nombre
-  }.
+        inputpais.nombre
+      }.
   La inflacion mensual de tu pais es de: ${parseFloat(
     calculoinflacionmensual() * 100
   ).toFixed(1)}%.
@@ -65,17 +68,19 @@ const imprimirhtml = () => {
   ).toFixed(1)}%.
   El precio al contado si pagaras en el mes de la ultima cuota es $${precioContadoUltimaCuota().toFixed(
     2
-  )}.`;
-  padre.appendChild(div);
+  )}.</div>`
+    )
+    .css("display", "flex")
+    .slideDown("slow");
+  $("#conclusionfinal")
+    .slideUp("slow")
+    .empty()
+    .append(`<div class=card>${queconviene()}</div>`)
+    .css("display", "flex")
+    .slideDown("slow");
 };
 
-// Funcion para mostrar en HTML la conclusion JQUERY
-const imprimirhtmlconclusion = () => {
-  $("#conclusionfinal").empty();
-  $("#conclusionfinal").append(`<div>${queconviene()}</div>`);
-};
-
-// Evento para enviar inputs
+// Evento para enviar inputs JQUERY
 $("#boton").click(function () {
   resetdevariables();
   obtenerinputs();
@@ -86,7 +91,6 @@ $("#boton").click(function () {
   sumadecuotasajustadas();
   queconviene();
   imprimirhtml();
-  imprimirhtmlconclusion();
 });
 
 // Funcion calculo de precio al contado en el ultimo mes
@@ -157,6 +161,7 @@ const sumadecuotasajustadas = () => {
   }
 };
 
+//Funcion para resetear array
 const resetdevariables = () => {
   valorcuotas.length = 0;
   valorcuotasajustadas.length = 0;
@@ -164,11 +169,9 @@ const resetdevariables = () => {
 };
 
 // Inicializacion de variables, objetos y arrays
-
 let valortotalcuotasajustadas = 0;
 const valorcuotas = [];
 const valorcuotasajustadas = [];
-
 const arg = new Pais("Argentina", "Peso argentino", 0.4);
 const chi = new Pais("Chile", "Peso chileno", 0.04);
 const uru = new Pais("Uruguay", "Peso uruguayo", 0.07);
@@ -177,24 +180,32 @@ paises.sort(function (a, b) {
   return a.inflacion - b.inflacion;
 });
 
-// Funcion para guardar su nombre
-
+// Funcion para guardar su nombre JQUERY
 const eventoregistro = () => {
-  document.getElementById("btnname");
-  btnname.addEventListener("click", registrarse);
-  function registrarse() {
-    let nombre1 = document.getElementById("nombre").value;
+  $("#btnname").click(() => {
+    let nombre1 = $("#nombre").val();
     localStorage.setItem("nombre1", nombre1);
-  }
+    $.post(URLJSON, nombre1, (respuesta, estado) => {
+      if (estado === "success") {
+        $("#confirmacionAjax")
+          .fadeOut()
+          .empty()
+          .prepend(
+            `<div>
+Nombre enviado con exito!
+</div>`
+          )
+          .fadeIn();
+      }
+    });
+  });
 };
 
+// Funcion para imprimir el nombre JQUERY
 const imprimirsaludo = () => {
   let nombreregistrado = localStorage.getItem("nombre1");
-  let saludo = document.getElementById("saludo");
-  saludo.innerHTML = "";
-  let div3 = document.createElement("div");
-  div3.innerHTML = `Hola, ${nombreregistrado}.`;
-  saludo.appendChild(div3);
+  $("#saludo").empty();
+  $("#saludo").append(`<div>Hola, ${nombreregistrado}.</div>`);
 };
 
 // Aplicacion
