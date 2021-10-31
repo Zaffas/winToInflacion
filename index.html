@@ -12,38 +12,38 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header class="card">
-    <h1>WINTOINFLACION</h1>
-    <h2>¿Te conviene comprar en cuotas o al contado?</h2>
+  <header>
+    <h1>WIN TO INFLACION</h1>
   </header>
   <main>
     <div class="card">
-      <p>Como te llamas? <input type="text" id="nombre"><button id="btnname">Registrar nombre</button></p>
-      <div id="saludo"></div>
-      <div id="confirmacionAjax"></div>
-    </div>
-    <div class="card">
-      <h2>Solo ingresa los siguientes datos:</h2>
+      <h2>¿Te conviene comprar en cuotas o al contado?</h2>
+      <div>¿De que pais eres?</div>
+      <div>
+        <select id="inputpais">
+          <option value="arg">Argentina</option>
+          <option value="chi">Chile</option>
+          <option value="uru">Uruguay</option>
+        </select>
+        <button id="enviarpais">Enviar</button>
+      </div>
+      <div id="avisopais"></div>
+      <h3>Solo ingresa los siguientes datos:</h3>
       <ul>
-        <li>Precio del producto al contado: <input type="number" id="inputpreciocontado"></li>
-        <li>Precio del producto final en cuotas: <input type="number" id="inputpreciocuotas"></li>
-        <li>Cantidad de cuotas: <input type="number" id="inputcuotas"></li>
-        <li>Pais: <select id="inputpais">
-            <option value="arg">Argentina</option>
-            <option value="chi">Chile</option>
-            <option value="uru">Uruguay</option>
-          </select></li>
+        <li>Precio del producto al contado:</li> <input type="number" id="inputpreciocontado">
+        <li>Precio del producto final en cuotas: </li><input type="number" id="inputpreciocuotas">
+        <li>Cantidad de cuotas: </li><input type="number" id="inputcuotas">
       </ul>
-      <button id="boton">Que conviene?</button>
+      <button id="boton">¿Qué conviene?</button>
     </div>
-    <div id="conclusionfinal"></div>
+    <div id="conclusionfinal" class="card2"></div>
     <div id="padre"></div>
   </main>
-  <footer>Diseñado por Silvio</footer>
-  </div>
+  <footer>Zaffa ©</footer>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
 </body>

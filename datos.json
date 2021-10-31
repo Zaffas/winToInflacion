@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "Argentina",
+    "moneda": "Peso argentino",
+    "inflacion": 0.4
+  },
+  {
+    "nombre": "Chile",
+    "moneda": "Peso chileno",
+    "inflacion": 0.04
+  },
+  {
+    "nombre": "Uruguay",
+    "moneda": "Peso uruguayo",
+    "inflacion": 0.07
+  }
+]

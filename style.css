@@ -1,13 +1,39 @@
 * {
   font-family: "Cabin", sans-serif;
 }
-li {
-  list-style: circle;
-  text-align: justify;
-}
 body {
-  background-color: aquamarine;
   height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    160deg,
+    #dcffda 0,
+    #cbffdc 12.5%,
+    #bbffdc 25%,
+    #abffda 37.5%,
+    #9df2d5 50%,
+    #92e3cf 62.5%,
+    #89d5c9 75%,
+    #83c9c3 87.5%,
+    #7ebfbf 100%
+  );
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  text-align: center;
+}
+input {
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 1px;
+}
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,48 +44,90 @@ main {
   flex-direction: column;
   align-items: center;
 }
-#padre {
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  display: none, flex;
-}
-#conclusionfinal {
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  display: none, flex;
-  -ms-flex-align: center;
-}
-
 .card {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
   border-radius: 5px;
-  flex-direction: row;
-  margin-top: 1%;
-  display: flex;
-  flex-direction: column;
-  padding: 1vh;
-  min-width: 50%;
-  max-width: 50%;
+  padding: 1%;
   text-align: center;
+  width: 40%;
+}
+.card2 {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1%;
+  text-align: center;
+  width: 40%;
+  display: none;
+  margin-top: 1%;
+}
+.card3 {
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1%;
+  text-align: center;
+  margin-top: 2%;
+  width: 30%;
+}
+.flexbox1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flexbox2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flexbox3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#inputpais {
+  width: fit-content;
+  align-self: center;
+}
+#enviarpais {
+  width: fit-content;
+  align-self: center;
 }
 #boton {
   width: fit-content;
   align-self: center;
 }
-
+#boton:disabled {
+  width: fit-content;
+  align-self: center;
+  background-color: grey;
+}
+button {
+  border: 0;
+  padding: 2px;
+  border-radius: 3px;
+  background-color: blue;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 footer {
-  min-width: 50%;
   margin: 1%;
-  text-align: end;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-size: 4em;
 }
 h2 {
   text-align: center;
+}
+
+#padre {
+  display: flex;
+  flex-direction: column;
+  width: 42%;
 }
